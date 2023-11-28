@@ -22,7 +22,6 @@ public class Part04Transform {
 
 //========================================================================================
 
-    // TODO Capitalize the users username, firstName and lastName
     Flux<User> capitalizeMany(Flux<User> flux) {
         return flux.map(u -> new User(
                 u.getUsername().toUpperCase(),
