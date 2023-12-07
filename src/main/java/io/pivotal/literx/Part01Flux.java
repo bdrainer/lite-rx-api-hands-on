@@ -13,34 +13,23 @@ import java.util.Arrays;
  */
 public class Part01Flux {
 
-//========================================================================================
-
 	Flux<String> emptyFlux() {
 		return Flux.empty();
 	}
-
-//========================================================================================
 
 	Flux<String> fooBarFluxFromValues() {
 		return Flux.just("foo", "bar");
 	}
 
-//========================================================================================
-
 	Flux<String> fooBarFluxFromList() {
 		return Flux.fromIterable(Arrays.asList("foo", "bar"));
 	}
-
-//========================================================================================
 
 	Flux<String> errorFlux() {
 		return Flux.error(new IllegalStateException("An unexpected state has been determined.  Try again later."));
 	}
 
-//========================================================================================
-
 	Flux<Long> counter() {
 		return Flux.interval(Duration.ofMillis(100L)).take(10);
 	}
-
 }

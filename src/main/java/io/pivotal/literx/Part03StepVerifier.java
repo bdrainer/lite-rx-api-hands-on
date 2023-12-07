@@ -31,19 +31,13 @@ import reactor.test.StepVerifier;
  */
 public class Part03StepVerifier {
 
-//========================================================================================
-
 	void expectFooBarComplete(Flux<String> flux) {
 		StepVerifier.create(flux).expectNext("foo", "bar").verifyComplete();
 	}
 
-//========================================================================================
-
 	void expectFooBarError(Flux<String> flux) {
 		StepVerifier.create(flux).expectNext("foo", "bar").verifyError(RuntimeException.class);
 	}
-
-//========================================================================================
 
 	void expectSkylerJesseComplete(Flux<User> flux) {
 		StepVerifier.create(flux)
@@ -52,15 +46,11 @@ public class Part03StepVerifier {
 						.verifyComplete();
 	}
 
-//========================================================================================
-
 	void expect10Elements(Flux<Long> flux) {
 		StepVerifier.create(flux)
 				.expectNextCount(10L)
 				.verifyComplete();
 	}
-
-//========================================================================================
 
 	void expect3600Elements(Supplier<Flux<Long>> supplier) {
 		StepVerifier.withVirtualTime(supplier)
@@ -68,5 +58,4 @@ public class Part03StepVerifier {
 				.expectNextCount(3600)
 				.verifyComplete();
 	}
-
 }
